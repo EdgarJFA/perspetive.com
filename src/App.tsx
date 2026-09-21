@@ -27,6 +27,8 @@ import {
   CaretRight,
   Quotes,
 } from '@phosphor-icons/react'
+import logoWhite from '@/assets/logo/perspective-white.png'
+import logoBlack from '@/assets/logo/perspective-black.png'
 
 // ─── i18n ────────────────────────────────────────────────────────────────────
 
@@ -144,6 +146,11 @@ const t = {
       linkedin: 'LinkedIn',
       rights: 'Todos os direitos reservados.',
       aureum: 'Representante Aureum Capital para a Europa',
+      tagline: 'Business Performance & Growth',
+    },
+    seo: {
+      title: 'Perspective | Performance e Crescimento Empresarial',
+      description: 'A Perspective é a representante da Aureum Capital na Europa. Transformamos empresas em entidades bancáveis, rentáveis e prontas para captar capital — da estratégia à execução, a partir de Lisboa.',
     },
   },
   en: {
@@ -257,6 +264,11 @@ const t = {
       linkedin: 'LinkedIn',
       rights: 'All rights reserved.',
       aureum: 'Aureum Capital Representative for Europe',
+      tagline: 'Business Performance & Growth',
+    },
+    seo: {
+      title: 'Perspective | Business Performance & Growth',
+      description: 'Perspective is Aureum Capital’s European representative. We transform companies into bankable, profitable businesses ready to raise capital — from strategy to execution, from Lisbon.',
     },
   },
 }
@@ -502,8 +514,17 @@ function Header() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="#" className="flex flex-col leading-none shrink-0">
-          <span className={`font-bold text-lg transition-colors ${scrolled ? 'text-navy-900' : 'text-white'}`}>PERSPECTIVE</span>
+        <a href="#" className="relative flex h-11 w-8 shrink-0 items-center" aria-label="Perspective">
+          <img
+            src={logoWhite}
+            alt=""
+            className={`absolute left-0 top-1/2 h-11 w-auto -translate-y-1/2 object-contain transition-opacity duration-300 ${scrolled ? 'opacity-0' : 'opacity-100'}`}
+          />
+          <img
+            src={logoBlack}
+            alt=""
+            className={`absolute left-0 top-1/2 h-11 w-auto -translate-y-1/2 object-contain transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-0'}`}
+          />
         </a>
 
         <nav className="hidden lg:flex items-center gap-6">
@@ -1000,8 +1021,13 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <p className="font-bold text-white text-xl mb-1">PERSPECTIVE</p>
-            <p className="text-[#c9a84c] text-[10px] font-semibold tracking-widest uppercase mb-1">Business Performance & Growth</p>
+            <a href="#" className="inline-flex items-center gap-3 mb-4">
+              <img src={logoWhite} alt="" className="h-12 w-auto object-contain" />
+              <span className="flex flex-col leading-tight">
+                <span className="font-bold text-white text-lg tracking-[0.14em]">PERSPECTIVE</span>
+                <span className="text-[#c9a84c] text-[10px] font-semibold tracking-widest uppercase mt-0.5">{tr.tagline}</span>
+              </span>
+            </a>
             <p className="text-white/30 text-[10px] tracking-wide mb-4">{tr.aureum}</p>
             <p className="text-white/40 text-xs leading-relaxed">Lisboa, Portugal</p>
           </div>
@@ -1063,18 +1089,65 @@ function Footer() {
 export default function App() {
   const [lang, setLang] = useState<Lang>('pt')
 
+  useEffect(() => {
+    const seo = t[lang].seo
+    document.title = seo.title
+    document.documentElement.lang = lang === 'pt' ? 'pt' : 'en'
+
+    const setMeta = (selector: string, attr: string, value: string) => {
+      const el = document.querySelector(selector)
+      if (el) el.setAttribute(attr, value)
+    }
+    setMeta('meta[name="description"]', 'content', seo.description)
+    setMeta('meta[property="og:title"]', 'content', seo.title)
+    setMeta('meta[property="og:description"]', 'content', seo.description)
+    setMeta('meta[name="twitter:title"]', 'content', seo.title)
+    setMeta('meta[name="twitter:description"]', 'content', seo.description)
+    setMeta('meta[property="og:locale"]', 'content', lang === 'pt' ? 'pt_PT' : 'en_GB')
+
+    let ld = document.getElementById('ld-json')
+    if (!ld) {
+      ld = document.createElement('script')
+      ld.id = 'ld-json'
+      ld.setAttribute('type', 'application/ld+json')
+      document.head.appendChild(ld)
+    }
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Perspective',
+      alternateName: 'PERSPECTIVE',
+      description: seo.description,
+      url: 'https://perspective.pt',
+      email: 'info@perspective.pt',
+      logo: '/favicon.png',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Av. da Liberdade',
+        addressLocality: 'Lisboa',
+        addressCountry: 'PT',
+      },
+      parentOrganization: {
+        '@type': 'Organization',
+        name: 'Aureum Capital',
+      },
+    })
+  }, [lang])
+
   return (
     <LangCtx.Provider value={{ lang, setLang }}>
       <div className="min-h-screen bg-cream-50">
         <Header />
-        <Hero />
-        <QuemSomos />
-        <AureumPerformance />
-        <Programas />
-        <Setores />
-        <ModeloOperacional />
-        <Simulador />
-        <CTA />
+        <main>
+          <Hero />
+          <QuemSomos />
+          <AureumPerformance />
+          <Programas />
+          <Setores />
+          <ModeloOperacional />
+          <Simulador />
+          <CTA />
+        </main>
         <Footer />
       </div>
     </LangCtx.Provider>

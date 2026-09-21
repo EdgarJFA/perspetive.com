@@ -1,7 +1,15 @@
 {
-  "description": "This corporate landing page enhances business performance and growth by offering strategic insights, specialized programs, and an interactive score simulator for companies.",
+  "title": "Perspective | Performance e Crescimento Empresarial",
+  "description": "A Perspective é a representante da Aureum Capital na Europa. Transformamos empresas em entidades bancáveis, rentáveis e prontas para captar capital — da estratégia à execução, a partir de Lisboa.",
+  "language": "pt",
   "robots": {
-    "index": false
+    "index": true
+  },
+  "icons": {
+    "icon": "/favicon.png"
+  },
+  "openGraph": {
+    "image": "/og-image.png"
   },
   "accessibility": {
     "addBypassLinks": false,
