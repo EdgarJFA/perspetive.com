@@ -1,0 +1,10 @@
+{
+  "description": "This corporate landing page enhances business performance and growth by offering strategic insights, specialized programs, and an interactive score simulator for companies.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
