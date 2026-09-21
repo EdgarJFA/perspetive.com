@@ -27,8 +27,8 @@ import {
   CaretRight,
   Quotes,
 } from '@phosphor-icons/react'
-import logoWhite from '@/assets/logo/perspective-white.png'
-import logoBlack from '@/assets/logo/perspective-black.png'
+import logoWhite from '@/assets/logo/perspective-white.png?inline'
+import logoBlack from '@/assets/logo/perspective-black.png?inline'
 
 // ─── i18n ────────────────────────────────────────────────────────────────────
 
