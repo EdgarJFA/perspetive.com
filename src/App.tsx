@@ -23,6 +23,7 @@ import {
   CheckCircle,
   MapPin,
   Envelope,
+  Phone,
   LinkedinLogo,
   CaretRight,
   Quotes,
@@ -140,7 +141,7 @@ const t = {
       contact: 'Contactos',
       lisbon: 'Lisboa, Portugal',
       lisbonRole: 'Representante Aureum Capital para a Europa',
-      lisbonAddr: 'Av. da Liberdade, Lisboa',
+      lisbonAddr: 'Av. da Liberdade, nr 224, Ventura X, Lisboa',
       email: 'E-mail',
       emailDiag: 'Diagnóstico',
       linkedin: 'LinkedIn',
@@ -258,7 +259,7 @@ const t = {
       contact: 'Contacts',
       lisbon: 'Lisbon, Portugal',
       lisbonRole: 'Aureum Capital Representative for Europe',
-      lisbonAddr: 'Av. da Liberdade, Lisbon',
+      lisbonAddr: 'Av. da Liberdade, nr 224, Ventura X, Lisbon',
       email: 'E-mail',
       emailDiag: 'Diagnosis',
       linkedin: 'LinkedIn',
@@ -985,10 +986,10 @@ function CTA() {
           </h2>
           <p className="text-white/70 text-lg mb-8 leading-relaxed">{tr.body}</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
-            <a href="mailto:diagnostico@perspective.pt" className="inline-flex items-center justify-center gap-2 bg-[#c9a84c] text-white font-semibold px-7 py-4 rounded-lg hover:bg-[#a8863a] transition-colors">
+            <a href="mailto:info@perspetive.com" className="inline-flex items-center justify-center gap-2 bg-[#c9a84c] text-white font-semibold px-7 py-4 rounded-lg hover:bg-[#a8863a] transition-colors">
               <Envelope size={18} /> {tr.btn1}
             </a>
-            <a href="tel:+351000000000" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-7 py-4 rounded-lg hover:border-[#c9a84c] hover:text-[#c9a84c] transition-colors">
+            <a href="tel:+351924037022" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-7 py-4 rounded-lg hover:border-[#c9a84c] hover:text-[#c9a84c] transition-colors">
               {tr.btn2}
             </a>
           </div>
@@ -1060,12 +1061,12 @@ function Footer() {
             <p className="font-semibold text-white text-xs uppercase tracking-widest mb-4">{tr.contact}</p>
             <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <Envelope size={14} className="text-[#c9a84c] shrink-0" />
-                <a href="mailto:info@perspective.pt" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">info@perspective.pt</a>
+                <Phone size={14} className="text-[#c9a84c] shrink-0" />
+                <a href="tel:+351924037022" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">+351 924 037 022</a>
               </div>
               <div className="flex items-center gap-2">
                 <Envelope size={14} className="text-[#c9a84c] shrink-0" />
-                <a href="mailto:diagnostico@perspective.pt" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">diagnostico@perspective.pt</a>
+                <a href="mailto:info@perspetive.com" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">info@perspetive.com</a>
               </div>
               <div className="flex items-center gap-2">
                 <LinkedinLogo size={14} className="text-[#c9a84c] shrink-0" />
@@ -1118,12 +1119,13 @@ export default function App() {
       name: 'Perspective',
       alternateName: 'PERSPECTIVE',
       description: seo.description,
-      url: 'https://perspective.pt',
-      email: 'info@perspective.pt',
+      url: 'https://perspetive.com',
+      email: 'info@perspetive.com',
+      telephone: '+351924037022',
       logo: '/favicon.png',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Av. da Liberdade',
+        streetAddress: 'Av. da Liberdade, nr 224, Ventura X',
         addressLocality: 'Lisboa',
         addressCountry: 'PT',
       },
