@@ -986,7 +986,7 @@ function CTA() {
           </h2>
           <p className="text-white/70 text-lg mb-8 leading-relaxed">{tr.body}</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
-            <a href="mailto:info@perspetive.com" className="inline-flex items-center justify-center gap-2 bg-[#c9a84c] text-white font-semibold px-7 py-4 rounded-lg hover:bg-[#a8863a] transition-colors">
+            <a href="mailto:dpe@perspetive.com" className="inline-flex items-center justify-center gap-2 bg-[#c9a84c] text-white font-semibold px-7 py-4 rounded-lg hover:bg-[#a8863a] transition-colors">
               <Envelope size={18} /> {tr.btn1}
             </a>
             <a href="tel:+351924037022" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-7 py-4 rounded-lg hover:border-[#c9a84c] hover:text-[#c9a84c] transition-colors">
@@ -1066,7 +1066,7 @@ function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Envelope size={14} className="text-[#c9a84c] shrink-0" />
-                <a href="mailto:info@perspetive.com" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">info@perspetive.com</a>
+                <a href="mailto:dpe@perspetive.com" className="text-white/50 hover:text-[#c9a84c] text-sm transition-colors">dpe@perspetive.com</a>
               </div>
               <div className="flex items-center gap-2">
                 <LinkedinLogo size={14} className="text-[#c9a84c] shrink-0" />
@@ -1120,7 +1120,7 @@ export default function App() {
       alternateName: 'PERSPECTIVE',
       description: seo.description,
       url: 'https://perspetive.com',
-      email: 'info@perspetive.com',
+      email: 'dpe@perspetive.com',
       telephone: '+351924037022',
       logo: '/favicon.png',
       address: {
